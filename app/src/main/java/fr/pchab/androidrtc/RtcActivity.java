@@ -17,7 +17,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.webrtc.MediaConstraints;
 import org.webrtc.ScreenCapturerAndroid;
+import org.webrtc.SessionDescription;
 import org.webrtc.VideoCapturer;
 
 import static android.content.ContentValues.TAG;
@@ -179,5 +183,4 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
             }
         });
     }
-
 }

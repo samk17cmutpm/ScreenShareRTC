@@ -28,10 +28,13 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:22.0.0'
-    compile 'com.github.nkzawa:socket.io-client:0.4.2'
+    implementation 'com.android.support:appcompat-v7:22.2.1'
+    implementation 'com.github.nkzawa:socket.io-client:0.6.0'
     compile files('libs/audio_device_java.jar')
     compile files('libs/autobanh.jar')
     compile files('libs/base_java.jar')
     compile files('libs/libjingle_peerconnection.jar')
+}
+repositories {
+    mavenCentral()
 }
