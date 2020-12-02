@@ -426,9 +426,7 @@ public class WebRtcClient {
                 peerConnection.addStream(mLocalMediaStream);
 
                 peerConnection.createOffer(new SimpleSdpObserver(),mPeerConnConstraints);
-
-
-//                peerConnection.setLocalDescription(new SimpleSdpObserver(), peerConnection.getLocalDescription());
+                peerConnection.setLocalDescription(new SimpleSdpObserver(), peerConnection.getLocalDescription());
             }
         });
         mSocket.connect();
@@ -442,6 +440,9 @@ public class WebRtcClient {
         @Override
         public void onCreateSuccess(SessionDescription sessionDescription) {
             Log.e("SimpleSdpObserver", "onCreateSuccess");
+
+            peerConnection.setLocalDescription(new SimpleSdpObserver(), sessionDescription);
+
 
             JSONObject jsonObject = new JSONObject();
             try {
@@ -462,7 +463,6 @@ public class WebRtcClient {
             Log.e("whisper", jsonObject.toString());
             mSocket.emit("whisper", jsonObject);
 
-            peerConnection.setLocalDescription(new SimpleSdpObserver(), sessionDescription);
         }
 
         @Override
