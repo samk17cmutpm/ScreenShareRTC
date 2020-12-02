@@ -425,8 +425,10 @@ public class WebRtcClient {
                 peerConnection = factory.createPeerConnection(iceServers, mPeerConnConstraints, new SimplePeerConnectionObserver());
                 peerConnection.addStream(mLocalMediaStream);
 
-                peerConnection.createOffer(new SimpleSdpObserver(),mPeerConnConstraints);
-                peerConnection.setLocalDescription(new SimpleSdpObserver(), peerConnection.getLocalDescription());
+                SimpleSdpObserver simpleSdpObserver = new SimpleSdpObserver();
+
+                peerConnection.createOffer(simpleSdpObserver,mPeerConnConstraints);
+                peerConnection.setRemoteDescription(simpleSdpObserver, peerConnection.getLocalDescription());
             }
         });
         mSocket.connect();
@@ -533,7 +535,7 @@ public class WebRtcClient {
 
             mSocket.emit("whisper", jsonObject);
 
-            peerConnection.addIceCandidate(iceCandidate);
+//            peerConnection.addIceCandidate(iceCandidate);
 
             Log.e("====>", "onIceCandidate");
         }
