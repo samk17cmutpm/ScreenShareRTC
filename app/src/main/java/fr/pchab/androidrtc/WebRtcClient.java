@@ -371,6 +371,7 @@ public class WebRtcClient {
                     JSONObject dataObject = jsonObject.getJSONObject("data");
 
                     switch (dataObject.getString("type")) {
+
                         case "answer":
 
                             Log.e("answer", dataObject.toString());
@@ -381,9 +382,12 @@ public class WebRtcClient {
 
                         case "candidate":
 
-                            Log.e("candidate", dataObject.toString());
 
-                            peerConnection.addIceCandidate(new IceCandidate(dataObject.getString("sdpMid"), dataObject.getInt("sdpMLineIndex"), dataObject.getString("candidate")));
+                            JSONObject candidate = dataObject.getJSONObject("candidate");
+
+                            Log.e("candidate", candidate.toString());
+
+                            peerConnection.addIceCandidate(new IceCandidate(candidate.getString("sdpMid"), candidate.getInt("sdpMLineIndex"), candidate.getString("candidate")));
                             break;
                     }
 
