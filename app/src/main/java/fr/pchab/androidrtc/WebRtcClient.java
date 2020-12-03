@@ -24,6 +24,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.AudioSource;
 import org.webrtc.DataChannel;
+import org.webrtc.DefaultVideoDecoderFactory;
+import org.webrtc.DefaultVideoEncoderFactory;
 import org.webrtc.EglBase;
 import org.webrtc.IceCandidate;
 import org.webrtc.MediaConstraints;
@@ -36,6 +38,8 @@ import org.webrtc.SdpObserver;
 import org.webrtc.SessionDescription;
 import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoCapturer;
+import org.webrtc.VideoDecoderFactory;
+import org.webrtc.VideoEncoderFactory;
 import org.webrtc.VideoSource;
 import org.webrtc.VideoTrack;
 
@@ -291,12 +295,18 @@ public class WebRtcClient {
         videoCapturer = capturer;
         PeerConnectionFactory.InitializationOptions options = PeerConnectionFactory.InitializationOptions.builder(context)
                 .setEnableInternalTracer(true)
-                .setFieldTrials("WebRTC-H264HighProfile/Enabled/")
+//                .setFieldTrials("WebRTC-H264HighProfile/Enabled/")
                 .createInitializationOptions();
-
+         VideoEncoderFactory encoderFactory;
+         VideoDecoderFactory decoderFactory;
+        encoderFactory = new DefaultVideoEncoderFactory(
+                rootEglBase.getEglBaseContext(), true /* enableIntelVp8Encoder */, true);
+        decoderFactory = new DefaultVideoDecoderFactory(rootEglBase.getEglBaseContext());
         PeerConnectionFactory.initialize(options);
         factory = PeerConnectionFactory
                 .builder()
+                .setVideoDecoderFactory(decoderFactory)
+                .setVideoEncoderFactory(encoderFactory)
                 .createPeerConnectionFactory();
         String host = "https://screen2.dungno.info";
         try {
@@ -329,7 +339,7 @@ public class WebRtcClient {
 
                 try {
                     JSONObject dataObject = jsonObject.getJSONObject("data");
-
+                    Log.e("SOCKET", dataObject.toString());
                     switch (dataObject.getString("type")) {
 
                         case "answer":
@@ -496,7 +506,7 @@ public class WebRtcClient {
 
             mSocket.emit("whisper", jsonObject);
 
-//            peerConnection.addIceCandidate(iceCandidate);
+           peerConnection.addIceCandidate(iceCandidate);
 
             Log.e("====>", "onIceCandidate");
         }
