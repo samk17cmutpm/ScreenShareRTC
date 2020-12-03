@@ -123,7 +123,7 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
     private void init() {
         PeerConnectionClient.PeerConnectionParameters peerConnectionParameters =
                 new PeerConnectionClient.PeerConnectionParameters(true, false,
-                        true, sDeviceWidth / SCREEN_RESOLUTION_SCALE, sDeviceHeight / SCREEN_RESOLUTION_SCALE, 0,
+                        true, sDeviceWidth / SCREEN_RESOLUTION_SCALE, sDeviceHeight / SCREEN_RESOLUTION_SCALE, 20,
                         0, "VP8",
                         false,
                         true,

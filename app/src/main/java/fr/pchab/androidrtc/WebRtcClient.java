@@ -38,6 +38,7 @@ import org.webrtc.SdpObserver;
 import org.webrtc.SessionDescription;
 import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoCapturer;
+import org.webrtc.VideoCodecInfo;
 import org.webrtc.VideoDecoderFactory;
 import org.webrtc.VideoEncoderFactory;
 import org.webrtc.VideoSource;
@@ -74,7 +75,7 @@ public class WebRtcClient {
     MessageHandler messageHandler = new MessageHandler();
     Context mContext;
     EglBase rootEglBase = EglBase.create();
-    final String CHANNEL = "5F9MW";
+    final String CHANNEL = "Y9JHA";
 //    final String CHANNEL = "UWFTD";
 
 
@@ -377,6 +378,7 @@ public class WebRtcClient {
         iceServers.add(new PeerConnection.IceServer("stun:stun.l.google.com:19302"));
 
         mPeerConnConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveAudio", "true"));
+        mPeerConnConstraints.mandatory.add(new MediaConstraints.KeyValuePair("maxFrameRate", "20"));
         mPeerConnConstraints.mandatory.add(new MediaConstraints.KeyValuePair("OfferToReceiveVideo", "true"));
         mPeerConnConstraints.optional.add(new MediaConstraints.KeyValuePair("DtlsSrtpKeyAgreement", "true"));
 
@@ -529,7 +531,6 @@ public class WebRtcClient {
 
         @Override
         public void onRemoveStream(MediaStream mediaStream) {
-
         }
 
         @Override
@@ -595,20 +596,20 @@ public class WebRtcClient {
         MediaConstraints videoConstraints = new MediaConstraints();
         videoConstraints.mandatory.add(new MediaConstraints.KeyValuePair("maxHeight", Integer.toString(mPeerConnParams.videoHeight)));
         videoConstraints.mandatory.add(new MediaConstraints.KeyValuePair("maxWidth", Integer.toString(mPeerConnParams.videoWidth)));
-        videoConstraints.mandatory.add(new MediaConstraints.KeyValuePair("maxFrameRate", Integer.toString(mPeerConnParams.videoFps)));
-        videoConstraints.mandatory.add(new MediaConstraints.KeyValuePair("minFrameRate", Integer.toString(mPeerConnParams.videoFps)));
+        videoConstraints.mandatory.add(new MediaConstraints.KeyValuePair("maxFrameRate", Integer.toString(20)));
+        videoConstraints.mandatory.add(new MediaConstraints.KeyValuePair("minFrameRate", Integer.toString(20)));
 
 //        VideoCapturer capturer = createScreenCapturer();
         mVideoSource = factory.createVideoSource(true);
         SurfaceTextureHelper surfaceTextureHelper = SurfaceTextureHelper.create(Thread.currentThread().getName(), rootEglBase.getEglBaseContext());
         videoCapturer.initialize(surfaceTextureHelper, mContext, mVideoSource.getCapturerObserver());
-
-        videoCapturer.startCapture(mPeerConnParams.videoWidth, mPeerConnParams.videoHeight, mPeerConnParams.videoFps);
+        mVideoSource.adaptOutputFormat(mPeerConnParams.videoWidth, mPeerConnParams.videoHeight, 20);
+        videoCapturer.startCapture(mPeerConnParams.videoWidth, mPeerConnParams.videoHeight, 20);
         VideoTrack localVideoTrack = factory.createVideoTrack(VIDEO_TRACK_ID, mVideoSource);
         localVideoTrack.setEnabled(true);
         mLocalMediaStream.addTrack(factory.createVideoTrack("ARDAMSv0", mVideoSource));
-        AudioSource audioSource = factory.createAudioSource(new MediaConstraints());
-        mLocalMediaStream.addTrack(factory.createAudioTrack("ARDAMSa0", audioSource));
+        //AudioSource audioSource = factory.createAudioSource(new MediaConstraints());
+        //mLocalMediaStream.addTrack(factory.createAudioTrack("ARDAMSa0", audioSource));
 //        mLocalMediaStream.videoTracks.get(0).addRenderer(new VideoRenderer(mLocalRender));
 //        mListener.onLocalStream(mLocalMediaStream);
         mListener.onStatusChanged("STREAMING");
