@@ -16,6 +16,7 @@
 
 package fr.pchab.androidrtc;
 
+import android.media.projection.MediaProjection;
 import android.util.Log;
 
 
@@ -23,14 +24,17 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.webrtc.AudioSource;
 import org.webrtc.DataChannel;
+import org.webrtc.EglBase;
 import org.webrtc.IceCandidate;
 import org.webrtc.MediaConstraints;
 import org.webrtc.MediaStream;
 import org.webrtc.PeerConnection;
 import org.webrtc.PeerConnectionFactory;
 import org.webrtc.RtpReceiver;
+import org.webrtc.ScreenCapturerAndroid;
 import org.webrtc.SdpObserver;
 import org.webrtc.SessionDescription;
+import org.webrtc.SurfaceTextureHelper;
 import org.webrtc.VideoCapturer;
 import org.webrtc.VideoSource;
 import org.webrtc.VideoTrack;
@@ -65,8 +69,8 @@ public class WebRtcClient {
     VideoCapturer videoCapturer;
     MessageHandler messageHandler = new MessageHandler();
     Context mContext;
-
-    final String CHANNEL = "UWFTD";
+    EglBase rootEglBase = EglBase.create();
+    final String CHANNEL = "1E4D9";
 
 
     /**
@@ -85,55 +89,6 @@ public class WebRtcClient {
     public interface Command {
         void execute(String peerId, JSONObject payload) throws JSONException;
     }
-
-//    public class CreateOfferCommand implements Command {
-//        public void execute(String peerId, JSONObject payload) throws JSONException {
-//            Log.d(TAG, "CreateOfferCommand");
-//            Peer peer = peers.get(peerId);
-//            peer.pc.createOffer(peer, mPeerConnConstraints);
-////            sendMessage("r0Z049NKJF2ZCIhRAAAZ","offer",new JSONObject());
-//        }
-//    }
-//
-//    public class CreateAnswerCommand implements Command {
-//        public void execute(String peerId, JSONObject payload) throws JSONException {
-//            Log.d(TAG, "CreateAnswerCommand");
-//            Peer peer = peers.get(peerId);
-//            SessionDescription sdp = new SessionDescription(
-//                    SessionDescription.Type.fromCanonicalForm(payload.optString("type")),
-//                    payload.optString("sdp")
-//            );
-//            peer.pc.setRemoteDescription(peer, sdp);
-//            peer.pc.createAnswer(peer, mPeerConnConstraints);
-//        }
-//    }
-//
-//    public class SetRemoteSDPCommand implements Command {
-//        public void execute(String peerId, JSONObject payload) throws JSONException {
-//            Log.d(TAG, "SetRemoteSDPCommand");
-//            Peer peer = peers.get(peerId);
-//            SessionDescription sdp = new SessionDescription(
-//                    SessionDescription.Type.fromCanonicalForm(payload.optString("type")),
-//                    payload.optString("sdp")
-//            );
-//            peer.pc.setRemoteDescription(peer, sdp);
-//        }
-//    }
-//
-//    public class AddIceCandidateCommand implements Command {
-//        public void execute(String peerId, JSONObject payload) throws JSONException {
-//            Log.d(TAG, "AddIceCandidateCommand");
-//            PeerConnection pc = peers.get(peerId).pc;
-//            if (pc.getRemoteDescription() != null) {
-//                IceCandidate candidate = new IceCandidate(
-//                        payload.optString("id"),
-//                        payload.optInt("label"),
-//                        payload.optString("candidate")
-//                );
-//                pc.addIceCandidate(candidate);
-//            }
-//        }
-//    }
 
     /**
      * Send a message through the signaling server
@@ -338,6 +293,7 @@ public class WebRtcClient {
                 .setEnableInternalTracer(true)
                 .setFieldTrials("WebRTC-H264HighProfile/Enabled/")
                 .createInitializationOptions();
+
         PeerConnectionFactory.initialize(options);
         factory = PeerConnectionFactory
                 .builder()
@@ -628,6 +584,9 @@ public class WebRtcClient {
 
 //        VideoCapturer capturer = createScreenCapturer();
         mVideoSource = factory.createVideoSource(true);
+        SurfaceTextureHelper surfaceTextureHelper = SurfaceTextureHelper.create(Thread.currentThread().getName(), rootEglBase.getEglBaseContext());
+        videoCapturer.initialize(surfaceTextureHelper, mContext, mVideoSource.getCapturerObserver());
+
         videoCapturer.startCapture(mPeerConnParams.videoWidth, mPeerConnParams.videoHeight, mPeerConnParams.videoFps);
         VideoTrack localVideoTrack = factory.createVideoTrack(VIDEO_TRACK_ID, mVideoSource);
         localVideoTrack.setEnabled(true);
