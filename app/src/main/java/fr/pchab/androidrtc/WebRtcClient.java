@@ -74,7 +74,8 @@ public class WebRtcClient {
     MessageHandler messageHandler = new MessageHandler();
     Context mContext;
     EglBase rootEglBase = EglBase.create();
-    final String CHANNEL = "1E4D9";
+    final String CHANNEL = "5F9MW";
+//    final String CHANNEL = "UWFTD";
 
 
     /**
@@ -300,7 +301,7 @@ public class WebRtcClient {
          VideoEncoderFactory encoderFactory;
          VideoDecoderFactory decoderFactory;
         encoderFactory = new DefaultVideoEncoderFactory(
-                rootEglBase.getEglBaseContext(), true /* enableIntelVp8Encoder */, true);
+                rootEglBase.getEglBaseContext(), false /* enableIntelVp8Encoder */, true);
         decoderFactory = new DefaultVideoDecoderFactory(rootEglBase.getEglBaseContext());
         PeerConnectionFactory.initialize(options);
         factory = PeerConnectionFactory
@@ -340,26 +341,29 @@ public class WebRtcClient {
                 try {
                     JSONObject dataObject = jsonObject.getJSONObject("data");
                     Log.e("SOCKET", dataObject.toString());
-                    switch (dataObject.getString("type")) {
+                    if (dataObject.has("type")){
+                        switch (dataObject.getString("type")) {
 
-                        case "answer":
+                            case "answer":
 
-                            Log.e("answer", dataObject.toString());
+                                Log.e("answer", dataObject.toString());
 
-                            peerConnection.setRemoteDescription(new SimpleSdpObserver(), new SessionDescription(SessionDescription.Type.ANSWER, dataObject.getString("sdp")));
+                                peerConnection.setRemoteDescription(new SimpleSdpObserver(), new SessionDescription(SessionDescription.Type.ANSWER, dataObject.getString("sdp")));
 
-                            break;
+                                break;
 
-                        case "candidate":
+                            case "candidate":
 
 
-                            JSONObject candidate = dataObject.getJSONObject("candidate");
+                                JSONObject candidate = dataObject.getJSONObject("candidate");
 
-                            Log.e("candidate", candidate.toString());
+                                Log.e("candidate", candidate.toString());
 
-                            peerConnection.addIceCandidate(new IceCandidate(candidate.getString("sdpMid"), candidate.getInt("sdpMLineIndex"), candidate.getString("candidate")));
-                            break;
+                                peerConnection.addIceCandidate(new IceCandidate(candidate.getString("sdpMid"), candidate.getInt("sdpMLineIndex"), candidate.getString("candidate")));
+                                break;
+                        }
                     }
+
 
 
                 } catch (JSONException e) {
@@ -398,7 +402,9 @@ public class WebRtcClient {
                 SimpleSdpObserver simpleSdpObserver = new SimpleSdpObserver();
 
                 peerConnection.createOffer(simpleSdpObserver, mPeerConnConstraints);
-                peerConnection.setRemoteDescription(simpleSdpObserver, peerConnection.getLocalDescription());
+                //peerConnection.setLocalDescription(simpleSdpObserver, peerConnection.getLocalDescription());
+
+
             }
         });
         mSocket.connect();
@@ -412,9 +418,6 @@ public class WebRtcClient {
         @Override
         public void onCreateSuccess(SessionDescription sessionDescription) {
             Log.e("SimpleSdpObserver", "onCreateSuccess");
-
-            peerConnection.setLocalDescription(new SimpleSdpObserver(), sessionDescription);
-
 
             JSONObject jsonObject = new JSONObject();
             try {
@@ -434,6 +437,9 @@ public class WebRtcClient {
 
             Log.e("whisper", jsonObject.toString());
             mSocket.emit("whisper", jsonObject);
+
+            peerConnection.setLocalDescription(SimpleSdpObserver.this, sessionDescription);
+
 
         }
 
