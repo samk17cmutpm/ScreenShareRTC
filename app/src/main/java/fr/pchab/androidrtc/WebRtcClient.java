@@ -66,7 +66,7 @@ public class WebRtcClient {
     MessageHandler messageHandler = new MessageHandler();
     Context mContext;
 
-    final String CHANNEL = "SQ32Y";
+    final String CHANNEL = "UWFTD";
 
 
     /**
@@ -188,7 +188,7 @@ public class WebRtcClient {
                         }
                     } else {
                         Command command = commandMap.get(type);
-                        if(command!=null){
+                        if (command != null) {
                             command.execute(from, payload);
                         }
                     }
@@ -285,7 +285,7 @@ public class WebRtcClient {
 
         @Override
         public void onAddStream(MediaStream mediaStream) {
-            Log.e("onAddStream", "onAddStream " + mediaStream.label());
+//            Log.e("onAddStream", "onAddStream " + mediaStream.label());
             // remote streams are displayed from 1 to MAX_PEER (0 is localStream)
 //            mediaStream.videoTracks.get(0).addRenderer(new VideoRenderer(mRemoteRender));
 //            mListener.onAddRemoteStream(mediaStream, endPoint + 1);
@@ -293,7 +293,6 @@ public class WebRtcClient {
 
         @Override
         public void onRemoveStream(MediaStream mediaStream) {
-            Log.e(TAG, "onRemoveStream " + mediaStream.label());
             removePeer(id);
         }
 
@@ -335,9 +334,14 @@ public class WebRtcClient {
         mListener = listener;
         mPeerConnParams = params;
         videoCapturer = capturer;
-        PeerConnectionFactory.initializeAndroidGlobals(mContext, true, true,
-                params.videoCodecHwAcceleration);
-        factory = new PeerConnectionFactory();
+        PeerConnectionFactory.InitializationOptions options = PeerConnectionFactory.InitializationOptions.builder(context)
+                .setEnableInternalTracer(true)
+                .setFieldTrials("WebRTC-H264HighProfile/Enabled/")
+                .createInitializationOptions();
+        PeerConnectionFactory.initialize(options);
+        factory = PeerConnectionFactory
+                .builder()
+                .createPeerConnectionFactory();
         String host = "https://screen2.dungno.info";
         try {
             mSocket = IO.socket(host);
@@ -427,7 +431,7 @@ public class WebRtcClient {
 
                 SimpleSdpObserver simpleSdpObserver = new SimpleSdpObserver();
 
-                peerConnection.createOffer(simpleSdpObserver,mPeerConnConstraints);
+                peerConnection.createOffer(simpleSdpObserver, mPeerConnConstraints);
                 peerConnection.setRemoteDescription(simpleSdpObserver, peerConnection.getLocalDescription());
             }
         });
@@ -468,7 +472,8 @@ public class WebRtcClient {
         }
 
         @Override
-        public void onSetSuccess() { }
+        public void onSetSuccess() {
+        }
 
         @Override
         public void onCreateFailure(String s) {
@@ -572,7 +577,6 @@ public class WebRtcClient {
     }
 
 
-
     /**
      * Call this method in Activity.onDestroy()
      */
@@ -623,7 +627,7 @@ public class WebRtcClient {
         videoConstraints.mandatory.add(new MediaConstraints.KeyValuePair("minFrameRate", Integer.toString(mPeerConnParams.videoFps)));
 
 //        VideoCapturer capturer = createScreenCapturer();
-        mVideoSource = factory.createVideoSource(videoCapturer);
+        mVideoSource = factory.createVideoSource(true);
         videoCapturer.startCapture(mPeerConnParams.videoWidth, mPeerConnParams.videoHeight, mPeerConnParams.videoFps);
         VideoTrack localVideoTrack = factory.createVideoTrack(VIDEO_TRACK_ID, mVideoSource);
         localVideoTrack.setEnabled(true);
