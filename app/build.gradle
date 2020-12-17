@@ -15,6 +15,9 @@ android {
         lintOptions {
             abortOnError false
         }
+        kotlinOptions {
+            jvmTarget = '1.8'
+        }
     }
     buildTypes {
         release {
