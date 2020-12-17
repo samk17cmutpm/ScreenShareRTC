@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/ScreenShareRTC.iml" filepath="$PROJECT_DIR$/ScreenShareRTC.iml" group="ScreenShareRTC" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="ScreenShareRTC/app" />
+      <module fileurl="file://$PROJECT_DIR$/ScreenShareRTC.iml" filepath="$PROJECT_DIR$/ScreenShareRTC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ScreenShareRTC.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ScreenShareRTC.app.iml" />
     </modules>
   </component>
 </project>

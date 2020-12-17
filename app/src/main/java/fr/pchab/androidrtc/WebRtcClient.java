@@ -75,7 +75,7 @@ public class WebRtcClient {
     MessageHandler messageHandler = new MessageHandler();
     Context mContext;
     EglBase rootEglBase = EglBase.create();
-    final String CHANNEL = "Y9JHA";
+    final String CHANNEL = "JXYZT";
 //    final String CHANNEL = "UWFTD";
 
 

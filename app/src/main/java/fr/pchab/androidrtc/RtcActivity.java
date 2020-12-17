@@ -2,8 +2,6 @@
 package fr.pchab.androidrtc;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,16 +15,14 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.webrtc.MediaConstraints;
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.webrtc.ScreenCapturerAndroid;
-import org.webrtc.SessionDescription;
 import org.webrtc.VideoCapturer;
 
 import static android.content.ContentValues.TAG;
 
-public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
+public class RtcActivity extends AppCompatActivity implements WebRtcClient.RtcListener {
     private WebRtcClient mWebRtcClient;
     private static final int CAPTURE_PERMISSION_REQUEST_CODE = 1;
     //    private EglBase rootEglBase;
@@ -98,7 +94,7 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
 
     @TargetApi(21)
     private VideoCapturer createScreenCapturer() {
-        if (mMediaProjectionPermissionResultCode != Activity.RESULT_OK) {
+        if (mMediaProjectionPermissionResultCode != AppCompatActivity.RESULT_OK) {
             report("User didn't give permission to capture the screen.");
             return null;
         }
@@ -113,6 +109,7 @@ public class RtcActivity extends Activity implements WebRtcClient.RtcListener {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (requestCode != CAPTURE_PERMISSION_REQUEST_CODE)
             return;
         mMediaProjectionPermissionResultCode = resultCode;
