@@ -1,8 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion 28
+    flavorDimensions "default"
+
     defaultConfig {
         applicationId "me.amryousef.webrtc_demo"
         minSdkVersion 23
@@ -29,16 +33,34 @@ android {
         sourceCompatibility 1.8
         targetCompatibility 1.8
     }
+
+    productFlavors {
+        dev {
+            applicationId "com.abmirroring.tv.dev"
+            resValue "string", "app_name", "AB Mirroring DEV"
+            buildConfigField("String", "BASE_URL", "\"https://screen2.dungno.info/\"")
+        }
+
+        prod {
+            applicationId "com.abmirroring.tv"
+            resValue "string", "app_name", "AB Mirroring"
+            buildConfigField("String", "BASE_URL", "\"https://screen2.dungno.info/\"")
+        }
+    }
 }
 
 dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
     implementation 'com.github.nkzawa:socket.io-client:0.6.0'
     implementation 'org.webrtc:google-webrtc:1.0.+'
-    implementation "androidx.core:core-ktx:+"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
 
     implementation 'com.google.android.material:material:1.2.1'
@@ -46,6 +68,29 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+
+    implementation 'org.koin:koin-android:2.0.1'
+    implementation 'org.koin:koin-androidx-viewmodel:2.0.1'
+
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
+
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.7.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    implementation 'io.coil-kt:coil:1.0.0'
+
+    implementation platform('com.google.firebase:firebase-bom:26.1.1')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
 }
 repositories {
     mavenCentral()

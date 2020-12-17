@@ -42,7 +42,7 @@ class WebRtcClient(var mContext: Context, private val mListener: RtcListener, va
 	private var mSocket: Socket? = null
 	var messageHandler: MessageHandler = MessageHandler()
 	var rootEglBase = EglBase.create()
-	val CHANNEL = "JXYZT"
+	val CHANNEL = "CBN3Z"
 	//    final String CHANNEL = "UWFTD";
 	/**
 	 * Implement this interface to be notified of events.

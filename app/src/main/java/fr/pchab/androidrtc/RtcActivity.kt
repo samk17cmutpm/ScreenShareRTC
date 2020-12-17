@@ -16,14 +16,16 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import fr.pchab.androidrtc.PeerConnectionClient.PeerConnectionParameters
 import fr.pchab.androidrtc.WebRtcClient.RtcListener
+import fr.pchab.androidrtc.base.BaseActivity
 import org.webrtc.ScreenCapturerAndroid
 import org.webrtc.VideoCapturer
 
-class RtcActivity : AppCompatActivity(), RtcListener {
+class RtcActivity : BaseActivity(), RtcListener {
 	private var mWebRtcClient: WebRtcClient? = null
 
 	public override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
+
 		requestWindowFeature(Window.FEATURE_NO_TITLE)
 		window.addFlags(
 			WindowManager.LayoutParams.FLAG_FULLSCREEN

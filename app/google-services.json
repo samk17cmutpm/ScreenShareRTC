@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1078831496844",
+    "project_id": "ab-mirroring",
+    "storage_bucket": "ab-mirroring.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078831496844:android:1a52399ab2101263b145a9",
+        "android_client_info": {
+          "package_name": "com.abmirroring.tv.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078831496844-krubcq9hqjgt53vva6sl6cpicjiejs22.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.abmirroring.tv.dev",
+            "certificate_hash": "bfdc9c30cc2d409cd4f6e499bf7ac24037c8dcbc"
+          }
+        },
+        {
+          "client_id": "1078831496844-nkotkoclmcbnilmeeecqip7vu0qb1ol5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQQXJZB32gHllCS2F2qPiREqxhR1hzZuk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078831496844-nkotkoclmcbnilmeeecqip7vu0qb1ol5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

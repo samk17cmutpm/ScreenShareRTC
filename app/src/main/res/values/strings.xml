@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AndroidRTC</string>
+    <string name="fonts_be_regular">fonts/be_regular.ttf</string>
+
+    <string name="error_network_error_des">No network available, please check your WiFi or Data connection</string>
+
+
     <string name="host">30.55.178.125</string>
     <string name="port">3000</string>
     <string name="action_settings">Options</string>
     <string name="dialog_calling">%1$s is calling ……</string>
     <string name="dialog_answer">Answer</string>
     <string name="dialog_hangup">Hangup</string>
+
+    <string name="action_next">Next</string>
+    <string name="action_ok">Ok</string>
+    <string name="action_no">No</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_skip">Skip</string>
+    <string name="action_yes">Yes</string>
+    <string name="action_try_again">Try Again</string>
 </resources>
