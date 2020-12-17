@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">@color/white</color>
-    <color name="primary_variant">@color/white</color>
-    <color name="on_primary">@color/white</color>
+    <color name="primary">#0F2133</color>
+    <color name="primary_variant">#0F2133</color>
+    <color name="on_primary">#132941</color>
 
     <color name="secondary">#0F2133</color>
     <color name="secondary_variant">#303134</color>
     <color name="on_secondary">#303134</color>
 
     <color name="home_bg">@color/primary</color>
-    <color name="home_video_bg">@color/primary</color>
+    <color name="home_video_bg">#132941</color>
 
-    <color name="home_video_title">@color/black_text</color>
-    <color name="home_video_des">@color/black_text_secondary</color>
-    <color name="home_video_info">@color/black_text_disabled</color>
+    <color name="home_video_title">@color/white_text</color>
+    <color name="home_video_des">@color/white_text_secondary</color>
+    <color name="home_video_info">@color/white_text_disabled</color>
 
-    <color name="main_bottom_tab_icon_selected">@color/black</color>
-    <color name="main_bottom_tab_icon">@color/black_text_disabled</color>
+    <color name="main_bottom_tab_icon_selected">@color/white</color>
+    <color name="main_bottom_tab_icon">@color/white_text_disabled</color>
 </resources>

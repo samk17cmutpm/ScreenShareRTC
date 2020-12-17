@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="bold_22">
+        <item name="fontPath">@string/fonts_be_bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="regular_14">
+        <item name="fontPath">@string/fonts_be_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="semi_bold_18">
+        <item name="fontPath">@string/fonts_be_semi_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="semi_bold_26">
+        <item name="fontPath">@string/fonts_be_semi_bold</item>
+        <item name="android:textSize">26sp</item>
+    </style>
+
+    <style name="InputCodeInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="fontPath">@string/fonts_be_regular</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/radius_normal</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/radius_normal</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/radius_normal</item>
+        <item name="boxCornerRadiusTopStart">@dimen/radius_normal</item>
+        <item name="boxStrokeColor">@color/search_stroke_color</item>
+        <item name="hintTextColor">@color/home_video_title</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">1dp</item>
+        <item name="android:textSize">10sp</item>
+        <item name="backgroundColor">@color/blue_grey_950</item>
+    </style>
+
+    <style name="InputCodeEditText" >
+        <item name="fontPath">@string/fonts_be_semi_bold</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textColor">@color/home_video_title</item>
+        <item name="backgroundColor">@color/blue_grey_950</item>
+
+    </style>
+
+</resources>

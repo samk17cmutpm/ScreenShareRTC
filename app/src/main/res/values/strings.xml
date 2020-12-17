@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="fonts_be_regular">fonts/be_regular.ttf</string>
+    <string name="fonts_be_bold">fonts/be_bold.ttf</string>
+    <string name="fonts_be_semi_bold">fonts/be_semi_bold.ttf</string>
 
     <string name="error_network_error_des">No network available, please check your WiFi or Data connection</string>
 
@@ -19,4 +21,17 @@
     <string name="action_skip">Skip</string>
     <string name="action_yes">Yes</string>
     <string name="action_try_again">Try Again</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <!--
+    This string is used for square devices and overridden by hello_world in
+    values-round/strings.xml for round devices.
+    -->
+    <string name="hello_world">Hello Square World!</string>
+    <string name="connect_to_browser">Connect to browser</string>
+
+    <string name="des">Open browser on your windows PC or Mac\nthen go to <u><font color="#0091ea"><b>https://abmirroring.tv</b></font></u></string>
+    <string name="scan_qr_code_to_connect">Scan QR code to connect</string>
+    <string name="or_enter_the_code">Or enter the code</string>
+    <string name="connect">Connect</string>
+    <string name="https_abmirroring_tv">https://abmirroring.tv</string>
 </resources>

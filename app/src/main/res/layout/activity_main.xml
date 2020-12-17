@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black_100"
+    tools:context=".ui.main.MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/topAppBar"
+        app:liftOnScroll="true"
+        app:expanded="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:backgroundTint="@color/black"
+            android:background="@color/black_100"
+            app:contentInsetStartWithNavigation="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:title="">
+
+            <TextView
+                android:gravity="center"
+                android:text="@string/connect_to_browser"
+                android:id="@+id/tvTitle"
+                style="@style/bold_22"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/black_100"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@drawable/ic_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <FrameLayout
+                android:layout_marginTop="@dimen/space_normal_xxl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="-120dp"
+                    android:src="@drawable/ic_bg_radius"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:src="@drawable/ic_home_bg"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_marginTop="115dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_browsers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginTop="155dp"
+                    style="@style/regular_14"
+                    android:textColor="@color/white"
+                    android:text="@string/des"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <TextView
+                    android:layout_marginTop="@dimen/space_tiny"
+                    android:gravity="center"
+                    android:text="@string/https_abmirroring_tv"
+                    style="@style/semi_bold_18"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_marginTop="-20dp"
+                style="@style/semi_bold_18"
+                android:textColor="@color/white"
+                android:text="@string/scan_qr_code_to_connect"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btScan"
+                android:layout_marginTop="@dimen/space_normal"
+                android:layout_marginBottom="@dimen/space_normal"
+                android:layout_gravity="center_horizontal"
+                app:cardElevation="@dimen/elevation_normal"
+                app:cardCornerRadius="40dp"
+                app:cardBackgroundColor="@color/blue_A900"
+                android:clickable="true"
+                android:focusable="true"
+                android:checkable="true"
+                android:layout_width="80dp"
+                android:layout_height="80dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_qr_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/semi_bold_18"
+                android:textColor="@color/white"
+                android:text="@string/or_enter_the_code"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                app:cardBackgroundColor="@color/blue_grey_950"
+                android:layout_marginTop="@dimen/space_normal"
+                android:layout_marginStart="@dimen/space_normal_xl"
+                android:layout_marginEnd="@dimen/space_normal_xl"
+                app:cardCornerRadius="@dimen/radius_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_marginTop="@dimen/space_small"
+                    android:layout_marginBottom="@dimen/space_small"
+                    android:layout_gravity="center"
+                    android:id="@+id/input_ed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    style="@style/InputCodeEditText"
+                    android:background="@null"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:cursorVisible="true"
+                    android:imeActionLabel="Done"
+                    android:imeOptions="actionDone"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                app:backgroundTint="@color/blue_A900"
+                android:gravity="center"
+                android:text="@string/connect"
+                android:textAppearance="@style/semi_bold_18"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/radius_normal"
+                android:layout_marginTop="@dimen/space_normal"
+                android:layout_marginStart="@dimen/space_normal_xl"
+                android:layout_marginEnd="@dimen/space_normal_xl"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"/>
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
