@@ -48,31 +48,27 @@
         android:required="true" />
 
     <application
-        android:theme="@style/AppTheme"
         android:name=".Application"
         android:allowBackup="false"
-        android:label="@string/app_name">
-        <activity android:name=".ui.main.MainActivity"
-            android:theme="@style/AppTheme"
-            >
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ui.scan_qr_code.ScanQRCodeActivity"></activity>
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:label="@string/title_activity_splash">
-
-        </activity>
+            android:label="@string/title_activity_splash"></activity>
         <activity
             android:name=".RtcActivity"
             android:excludeFromRecents="true"
-            android:theme="@style/AppTheme">
-
-        </activity>
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

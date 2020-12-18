@@ -5,45 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black_100"
+    android:background="@color/primary"
     tools:context=".ui.main.MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/topAppBar"
-        app:liftOnScroll="true"
-        app:expanded="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/toolbar"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
-            android:backgroundTint="@color/black"
-            android:background="@color/black_100"
-            app:contentInsetStartWithNavigation="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp"
-            app:title="">
-
-            <TextView
-                android:gravity="center"
-                android:text="@string/connect_to_browser"
-                android:id="@+id/tvTitle"
-                style="@style/bold_22"
-                android:textColor="@color/white"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-        </com.google.android.material.appbar.MaterialToolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+    <include layout="@layout/common_top_bar"/>
 
     <androidx.core.widget.NestedScrollView
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        android:background="@color/black_100"
+        android:background="@color/primary"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -52,11 +21,6 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:src="@drawable/ic_line"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
 
             <FrameLayout
                 android:layout_marginTop="@dimen/space_normal_xxl"

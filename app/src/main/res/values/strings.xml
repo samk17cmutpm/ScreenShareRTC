@@ -34,4 +34,5 @@
     <string name="or_enter_the_code">Or enter the code</string>
     <string name="connect">Connect</string>
     <string name="https_abmirroring_tv">https://abmirroring.tv</string>
+    <string name="scan_qr_code">Scan QR code</string>
 </resources>

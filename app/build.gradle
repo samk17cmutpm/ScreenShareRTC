@@ -93,6 +93,9 @@ dependencies {
     implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+
+    implementation 'me.dm7.barcodescanner:zxing:1.9.13'
+    implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
 }
 repositories {
     mavenCentral()

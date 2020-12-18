@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/topAppBar"
+    app:liftOnScroll="true"
+    app:expanded="true"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        app:layout_scrollFlags="scroll|enterAlways|snap"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:backgroundTint="@color/primary"
+        android:background="@color/black_100"
+        app:contentInsetStartWithNavigation="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:title="">
+
+        <TextView
+            android:gravity="center"
+            android:id="@+id/tvTitle"
+            style="@style/bold_22"
+            android:textColor="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:src="@drawable/ic_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</com.google.android.material.appbar.AppBarLayout>
