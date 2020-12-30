@@ -8,6 +8,8 @@
     <color name="secondary_variant">#303134</color>
     <color name="on_secondary">#303134</color>
 
+    <color name="divider">#0C0F25</color>
+
     <color name="home_bg">@color/primary</color>
     <color name="home_video_bg">#132941</color>
     <color name="grey">#DDDFF8</color>

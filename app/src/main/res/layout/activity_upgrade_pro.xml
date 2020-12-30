@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.upgrade_pro.UpgradeProActivity">
+
+    <include layout="@layout/common_top_bar"/>
+
+    <androidx.core.widget.NestedScrollView
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:background="@color/primary"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:src="@drawable/ic_upgrade_top_bg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imUpgradeProDes"
+                android:layout_margin="@dimen/space_normal"
+                android:layout_alignParentEnd="true"
+                android:src="@drawable/ic_upgrade_pro_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tvProVersion"
+                android:layout_marginStart="@dimen/space_normal"
+                android:layout_marginTop="@dimen/space_normal_xxl"
+                style="@style/semi_extra_bold_26"
+                android:textColor="@color/green_A800"
+                android:text="@string/pro_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_below="@+id/tvProVersion"
+                android:id="@+id/tvProVersionDes"
+                android:layout_marginStart="@dimen/space_normal"
+                android:layout_marginTop="@dimen/space_normal_xxl"
+                style="@style/bold_14"
+                android:textColor="@color/white"
+                android:textAllCaps="true"
+                android:lineSpacingMultiplier="1.5"
+                android:text="@string/lifetime_updates_no_5_minutes_trial_limit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layoutOptions"
+                android:layout_below="@+id/imUpgradeProDes"
+                android:layout_marginStart="@dimen/space_normal"
+                android:layout_marginEnd="@dimen/space_normal"
+                app:cardCornerRadius="@dimen/radius_normal"
+                app:cardBackgroundColor="@color/blue_grey_A900"
+                android:elevation="@dimen/elevation_small"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:checkedButton="@id/first"
+                    android:dividerHeight="1dp"
+                    android:divider="@color/divider"
+                    android:showDividers="middle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        android:id="@+id/first"
+                        app:buttonTint="@color/blue_A900"
+                        android:layout_marginStart="@dimen/space_normal"
+                        android:paddingStart="@dimen/space_normal"
+                        android:paddingLeft="@dimen/space_normal"
+                        android:textAppearance="@style/regular_16"
+                        android:textColor="@color/white"
+                        android:text="One month: $1/month"
+                        android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_height="65dp"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        app:buttonTint="@color/blue_A900"
+                        android:layout_marginStart="@dimen/space_normal"
+                        android:paddingStart="@dimen/space_normal"
+                        android:paddingLeft="@dimen/space_normal"
+                        android:textAppearance="@style/regular_16"
+                        android:textColor="@color/white"
+                        android:text="One month: $1/month"
+                        android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_height="65dp"/>
+
+                    <com.google.android.material.radiobutton.MaterialRadioButton
+                        app:buttonTint="@color/blue_A900"
+                        android:layout_marginStart="@dimen/space_normal"
+                        android:paddingStart="@dimen/space_normal"
+                        android:paddingLeft="@dimen/space_normal"
+                        android:textAppearance="@style/regular_16"
+                        android:textColor="@color/white"
+                        android:text="One month: $1/month"
+                        android:layout_width="match_parent"
+                        android:gravity="center_vertical"
+                        android:layout_height="65dp"/>
+
+                </RadioGroup>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                style="@style/regular_14"
+                android:textColor="@color/white"
+                android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book"
+                android:layout_margin="@dimen/space_normal"
+                android:layout_below="@+id/layoutOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_gravity="bottom"
+        android:id="@+id/btUpgradeToProVersion"
+        android:textAppearance="@style/semi_bold_18"
+        android:textColor="@color/white"
+        android:text="@string/upgrade_to_pro_version"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/radius_normal"
+        app:backgroundTint="@color/blue_A900"
+        android:layout_margin="@dimen/space_normal"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

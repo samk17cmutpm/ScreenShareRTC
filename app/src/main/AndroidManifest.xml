@@ -52,22 +52,28 @@
         android:allowBackup="false"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.connected.ConnectedActivity">
+        <activity android:name=".ui.upgrade_pro.UpgradeProActivity">
 
-        </activity>
-        <activity android:name=".ui.scan_qr_code.ScanQRCodeActivity" />
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+        </activity>
+        <activity android:name=".ui.connected.ConnectedActivity">
+        </activity>
+        <activity android:name=".ui.scan_qr_code.ScanQRCodeActivity" />
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:theme="@style/AppTheme">
+
         </activity>
         <activity
             android:name=".ui.splash.SplashActivity"
             android:label="@string/title_activity_splash">
+
+
 
         </activity>
         <activity

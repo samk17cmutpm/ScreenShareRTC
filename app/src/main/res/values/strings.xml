@@ -3,6 +3,7 @@
     <string name="fonts_be_regular">fonts/be_regular.ttf</string>
     <string name="fonts_be_bold">fonts/be_bold.ttf</string>
     <string name="fonts_be_semi_bold">fonts/be_semi_bold.ttf</string>
+    <string name="fonts_be_extra_bold">fonts/be_extra_bold.ttf</string>
 
     <string name="error_network_error_des">No network available, please check your WiFi or Data connection</string>
 
@@ -29,6 +30,7 @@
     <string name="hello_world">Hello Square World!</string>
     <string name="connect_to_browser">Connect to browser</string>
     <string name="connected">Connected</string>
+    <string name="upgrade_pro">Upgrade Pro</string>
 
     <string name="des">Open browser on your windows PC or Mac\nthen go to <u><font color="#0091ea"><b>https://abmirroring.tv</b></font></u></string>
     <string name="scan_qr_code_to_connect">Scan QR code to connect</string>
@@ -41,4 +43,8 @@
     <string name="start_mirroring">Start Mirroring</string>
     <string name="now_let_s_mirror_your_screen">Now, let’s mirror your screen</string>
     <string name="upgrade_to_pro_version">Upgrade to Pro version</string>
+    <string name="pro_version">PRO VERSION</string>
+    <string name="lifetime_updates_no_5_minutes_trial_limit">Lifetime updates\nNo 5 minutes trial limit</string>
+    <string name="you_are_using_a_trial_version_mirroring_will_stop_after_5_minutes">You are using a trial version. Mirroring will stop\nafter 5 minutes</string>
+    <string name="allow_audio">Allow Audio</string>
 </resources>

@@ -8,28 +8,31 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
+    <FrameLayout
         app:layout_scrollFlags="scroll|enterAlways|snap"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        style="@style/Widget.MaterialComponents.Toolbar.Primary"
-        android:backgroundTint="@color/primary"
-        android:background="@color/black_100"
-        app:contentInsetStartWithNavigation="0dp"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        app:title="">
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:backgroundTint="@color/primary"
+            android:background="@color/black_100"
+            app:contentInsetStartWithNavigation="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            app:title=""/>
 
         <TextView
-            android:gravity="center"
+            android:layout_gravity="center"
             android:id="@+id/tvTitle"
             style="@style/bold_22"
             android:textColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
-    </com.google.android.material.appbar.MaterialToolbar>
+    </FrameLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:src="@drawable/ic_line"

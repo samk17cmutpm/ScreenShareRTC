@@ -134,22 +134,22 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.button.MaterialButton
-                app:backgroundTint="@color/blue_A900"
-                android:gravity="center"
-                android:text="@string/connect"
-                android:textAppearance="@style/semi_bold_18"
-                android:textColor="@color/white"
-                app:cornerRadius="@dimen/radius_normal"
-                android:layout_marginTop="@dimen/space_normal"
-                android:layout_marginStart="@dimen/space_normal_xl"
-                android:layout_marginEnd="@dimen/space_normal_xl"
-                android:layout_width="match_parent"
-                android:layout_height="?actionBarSize"/>
-
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_gravity="bottom"
+        app:backgroundTint="@color/blue_A900"
+        android:gravity="center"
+        android:text="@string/connect"
+        android:textAppearance="@style/semi_bold_18"
+        android:textColor="@color/white"
+        app:cornerRadius="@dimen/radius_normal"
+        android:layout_marginTop="@dimen/space_normal"
+        android:layout_marginStart="@dimen/space_normal_xl"
+        android:layout_marginEnd="@dimen/space_normal_xl"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
