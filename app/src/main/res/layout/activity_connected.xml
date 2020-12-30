@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primary"
+    tools:context=".ui.connected.ConnectedActivity">
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/ic_connected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/space_normal"
+            android:layout_marginBottom="@dimen/space_normal"
+            style="@style/regular_18"
+            android:textColor="@color/white"
+            android:text="@string/you_are_connected_to_browser"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.card.MaterialCardView
+            app:strokeColor="@color/grey_alpha_3"
+            app:strokeWidth="1dp"
+            app:cardBackgroundColor="@color/grey_alpha_2"
+            android:layout_marginTop="@dimen/space_normal"
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/btStartMirroring"
+            android:clickable="true"
+            android:focusable="true"
+            android:checkable="true"
+            app:cardCornerRadius="94dp"
+            android:layout_width="188dp"
+            android:layout_height="188dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_gravity="center"
+                android:src="@drawable/ic_start_mirroring"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_marginTop="@dimen/space_normal"
+            style="@style/semi_bold_20"
+            android:textColor="@color/blue_A900"
+            android:gravity="center"
+            android:text="@string/start_mirroring"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginTop="@dimen/space_medium"
+            style="@style/regular_16"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:text="@string/now_let_s_mirror_your_screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/common_top_bar"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_gravity="bottom"
+        android:id="@+id/btUpgradeToProVersion"
+        android:textAppearance="@style/semi_bold_18"
+        android:textColor="@color/white"
+        android:text="@string/upgrade_to_pro_version"
+        android:textAllCaps="false"
+        app:cornerRadius="@dimen/radius_normal"
+        app:backgroundTint="@color/blue_A900"
+        android:layout_margin="@dimen/space_normal"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"/>
+
+</FrameLayout>

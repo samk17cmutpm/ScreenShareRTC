@@ -16,9 +16,19 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="regular_18">
+        <item name="fontPath">@string/fonts_be_regular</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
     <style name="semi_bold_18">
         <item name="fontPath">@string/fonts_be_semi_bold</item>
         <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="semi_bold_20">
+        <item name="fontPath">@string/fonts_be_semi_bold</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="semi_bold_26">

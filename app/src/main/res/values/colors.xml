@@ -10,6 +10,9 @@
 
     <color name="home_bg">@color/primary</color>
     <color name="home_video_bg">#132941</color>
+    <color name="grey">#DDDFF8</color>
+    <color name="grey_alpha_2">#05DDDFF8</color>
+    <color name="grey_alpha_3">#08DDDFF8</color>
 
     <color name="home_video_title">@color/white_text</color>
     <color name="home_video_des">@color/white_text_secondary</color>

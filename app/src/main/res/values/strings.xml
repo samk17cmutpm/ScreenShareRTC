@@ -28,6 +28,7 @@
     -->
     <string name="hello_world">Hello Square World!</string>
     <string name="connect_to_browser">Connect to browser</string>
+    <string name="connected">Connected</string>
 
     <string name="des">Open browser on your windows PC or Mac\nthen go to <u><font color="#0091ea"><b>https://abmirroring.tv</b></font></u></string>
     <string name="scan_qr_code_to_connect">Scan QR code to connect</string>
@@ -36,4 +37,8 @@
     <string name="https_abmirroring_tv">https://abmirroring.tv</string>
     <string name="scan_qr_code">Scan QR code</string>
     <string name="hold_over_qr_code">Hold over QR code</string>
+    <string name="you_are_connected_to_browser">You are connected to browser</string>
+    <string name="start_mirroring">Start Mirroring</string>
+    <string name="now_let_s_mirror_your_screen">Now, let’s mirror your screen</string>
+    <string name="upgrade_to_pro_version">Upgrade to Pro version</string>
 </resources>
