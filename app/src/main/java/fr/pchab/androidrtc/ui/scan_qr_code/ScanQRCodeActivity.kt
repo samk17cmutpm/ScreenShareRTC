@@ -34,6 +34,8 @@ class ScanQRCodeActivity : BaseActivity() {
 		tvTitle?.text = getString(R.string.scan_qr_code)
 
 		initScanner(savedInstanceState)
+
+		btCancel?.setOnClickListener { onBackPressed() }
 	}
 
 	private fun initScanner(savedInstanceState: Bundle?) {

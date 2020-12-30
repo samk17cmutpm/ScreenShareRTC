@@ -35,4 +35,5 @@
     <string name="connect">Connect</string>
     <string name="https_abmirroring_tv">https://abmirroring.tv</string>
     <string name="scan_qr_code">Scan QR code</string>
+    <string name="hold_over_qr_code">Hold over QR code</string>
 </resources>

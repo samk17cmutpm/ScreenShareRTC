@@ -13,7 +13,7 @@ class CustomViewfinderView(context: Context?, attrs: AttributeSet?) :
     ViewfinderView(context, attrs) {
 
     private var scanLineTop = 0
-    private var scanLightHeight = 75
+    private var scanLightHeight = 20
 
     override fun onDraw(canvas: Canvas?) {
 

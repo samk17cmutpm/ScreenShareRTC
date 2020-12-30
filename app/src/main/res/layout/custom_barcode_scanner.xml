@@ -10,20 +10,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/zxing_barcode_surface"
-            app:zxing_framing_rect_width="270dp"
-            app:zxing_framing_rect_height="270dp" />
+            app:zxing_framing_rect_width="@dimen/qr_code_size"
+            app:zxing_framing_rect_height="@dimen/qr_code_size" />
 
-        <View
-            android:background="@color/zxing_custom_result_view"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/space_normal_xl"/>
+<!--        <View-->
+<!--            android:background="@color/zxing_custom_result_view"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="@dimen/space_normal_xl"/>-->
 
     </FrameLayout>
 
     <fr.pchab.androidrtc.ui.scan_qr_code.CustomViewfinderView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/space_normal_xl"
         android:id="@+id/zxing_viewfinder_view"
         app:zxing_possible_result_points="@color/zxing_custom_possible_result_points"
         app:zxing_result_view="@color/zxing_custom_result_view"

@@ -27,4 +27,5 @@
     inner_frame_layout_padding (below variable) on round screens.
     -->
     <dimen name="inner_frame_layout_padding">5dp</dimen>
+    <dimen name="qr_code_size">270dp</dimen>
 </resources>

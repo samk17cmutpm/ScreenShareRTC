@@ -7,13 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".ui.scan_qr_code.ScanQRCodeActivity">
 
-    <include layout="@layout/common_top_bar"/>
-
     <com.journeyapps.barcodescanner.DecoratedBarcodeView
-        android:layout_marginTop="?actionBarSize"
         android:id="@+id/bcScanner"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:zxing_scanner_layout="@layout/custom_barcode_scanner" />
+
+    <include layout="@layout/common_top_bar"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_gravity="bottom"
+        android:id="@+id/btCancel"
+        android:textAppearance="@style/semi_bold_18"
+        android:textColor="@color/white"
+        android:text="@string/action_cancel"
+        android:textAllCaps="false"
+        app:cornerRadius="0dp"
+        app:backgroundTint="@color/blue_A900"
+        android:layout_margin="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:minHeight="0dp"
+        android:minWidth="0dp"/>
+
+    <TextView
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="110dp"
+        style="@style/regular_16"
+        android:textColor="@color/white"
+        android:text="@string/hold_over_qr_code"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 </FrameLayout>
