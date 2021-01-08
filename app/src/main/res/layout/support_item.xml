@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/blue_grey_A900"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginStart="@dimen/space_normal"
+            android:layout_centerVertical="true"
+            android:id="@+id/imIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imIcon"
+            android:layout_marginStart="@dimen/space_normal"
+            style="@style/medium_16"
+            android:textColor="@color/white"
+            android:id="@+id/tvText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_marginEnd="@dimen/space_normal"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_arrow_support"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

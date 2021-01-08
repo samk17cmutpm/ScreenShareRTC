@@ -4,6 +4,7 @@
     <string name="fonts_be_bold">fonts/be_bold.ttf</string>
     <string name="fonts_be_semi_bold">fonts/be_semi_bold.ttf</string>
     <string name="fonts_be_extra_bold">fonts/be_extra_bold.ttf</string>
+    <string name="fonts_be_medium">fonts/be_medium.ttf</string>
 
     <string name="error_network_error_des">No network available, please check your WiFi or Data connection</string>
 
@@ -31,6 +32,7 @@
     <string name="connect_to_browser">Connect to browser</string>
     <string name="connected">Connected</string>
     <string name="upgrade_pro">Upgrade Pro</string>
+    <string name="support">Support</string>
 
     <string name="des">Open browser on your windows PC or Mac\nthen go to <u><font color="#0091ea"><b>https://abmirroring.tv</b></font></u></string>
     <string name="scan_qr_code_to_connect">Scan QR code to connect</string>
@@ -47,4 +49,9 @@
     <string name="lifetime_updates_no_5_minutes_trial_limit">Lifetime updates\nNo 5 minutes trial limit</string>
     <string name="you_are_using_a_trial_version_mirroring_will_stop_after_5_minutes">You are using a trial version. Mirroring will stop\nafter 5 minutes</string>
     <string name="allow_audio">Allow Audio</string>
+    <string name="upgrade_to_pro_version">Upgrade to Pro version</string>
+    <string name="about_screen_mirror">About Screen Mirror</string>
+    <string name="send_your_feedback">Send your feedback</string>
+    <string name="recommend_this_app_to_a_friend">Recommend this app to a friend</string>
+    <string name="rate_this_app">Rate this app</string>
 </resources>
