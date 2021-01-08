@@ -122,7 +122,7 @@
                     android:id="@+id/input_ed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="textCapCharacters"
                     style="@style/InputCodeEditText"
                     android:background="@null"
                     android:gravity="center"
@@ -139,13 +139,15 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/btConnect"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/blue_A900"
+        app:backgroundTint="@color/bt_connect_selector"
         android:gravity="center"
         android:text="@string/connect"
         android:textAppearance="@style/semi_bold_18"
         android:textColor="@color/white"
         app:cornerRadius="@dimen/radius_normal"
+        android:enabled="false"
         android:layout_marginTop="@dimen/space_normal"
         android:layout_marginStart="@dimen/space_normal_xl"
         android:layout_marginEnd="@dimen/space_normal_xl"

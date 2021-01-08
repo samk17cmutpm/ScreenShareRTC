@@ -44,7 +44,6 @@
     <string name="you_are_connected_to_browser">You are connected to browser</string>
     <string name="start_mirroring">Start Mirroring</string>
     <string name="now_let_s_mirror_your_screen">Now, let’s mirror your screen</string>
-    <string name="upgrade_to_pro_version">Upgrade to Pro version</string>
     <string name="pro_version">PRO VERSION</string>
     <string name="lifetime_updates_no_5_minutes_trial_limit">Lifetime updates\nNo 5 minutes trial limit</string>
     <string name="you_are_using_a_trial_version_mirroring_will_stop_after_5_minutes">You are using a trial version. Mirroring will stop\nafter 5 minutes</string>

@@ -3,6 +3,8 @@ package fr.pchab.androidrtc.ui.connected
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import fr.pchab.androidrtc.R
 import fr.pchab.androidrtc.base.BaseActivity
 import kotlinx.android.synthetic.main.common_top_bar.*

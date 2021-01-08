@@ -31,7 +31,7 @@ import org.webrtc.PeerConnectionFactory.InitializationOptions
 import java.net.URISyntaxException
 import java.util.*
 
-class WebRtcClient(var mContext: Context, private val mListener: RtcListener, var videoCapturer: VideoCapturer, private val mPeerConnParams: PeerConnectionParameters) {
+class WebRtcClient(val channel: String?, var mContext: Context, private val mListener: RtcListener, var videoCapturer: VideoCapturer, private val mPeerConnParams: PeerConnectionParameters) {
 	private val endPoints = BooleanArray(MAX_PEER)
 	private val factory: PeerConnectionFactory?
 	private val peers = HashMap<String, Peer>()
@@ -42,7 +42,6 @@ class WebRtcClient(var mContext: Context, private val mListener: RtcListener, va
 	private var mSocket: Socket? = null
 	var messageHandler: MessageHandler = MessageHandler()
 	var rootEglBase = EglBase.create()
-	val CHANNEL = "CBN3Z"
 	//    final String CHANNEL = "UWFTD";
 	/**
 	 * Implement this interface to be notified of events.
@@ -213,7 +212,7 @@ class WebRtcClient(var mContext: Context, private val mListener: RtcListener, va
 			Log.e("SimpleSdpObserver", "onCreateSuccess")
 			val jsonObject = JSONObject()
 			try {
-				jsonObject.put("channel", CHANNEL)
+				jsonObject.put("channel", channel)
 				jsonObject.put("type", "call")
 				val dataObject = JSONObject()
 				dataObject.put("sdp", sessionDescription.description)
@@ -244,7 +243,7 @@ class WebRtcClient(var mContext: Context, private val mListener: RtcListener, va
 		override fun onIceCandidate(iceCandidate: IceCandidate) {
 			val jsonObject = JSONObject()
 			try {
-				jsonObject.put("channel", CHANNEL)
+				jsonObject.put("channel", channel)
 				jsonObject.put("type", "call")
 				val dataObject = JSONObject()
 				dataObject.put("type", "candidate")
@@ -357,7 +356,7 @@ class WebRtcClient(var mContext: Context, private val mListener: RtcListener, va
 			.setVideoDecoderFactory(decoderFactory)
 			.setVideoEncoderFactory(encoderFactory)
 			.createPeerConnectionFactory()
-		val host = "https://screen2.dungno.info"
+		val host = "${BuildConfig.BASE_URL}"
 		try {
 			mSocket = IO.socket(host)
 		} catch (e: URISyntaxException) {
@@ -367,7 +366,7 @@ class WebRtcClient(var mContext: Context, private val mListener: RtcListener, va
 		mSocket!!.on("message", messageHandler.onMessage)
 		mSocket!!.on(Socket.EVENT_DISCONNECT) { Log.d(TAG, "socket state disconnect") }
 		mSocket!!.on(Socket.EVENT_ERROR) { Log.d(TAG, "socket state error") }
-		mSocket!!.on(CHANNEL) { args -> //                Log.e("on listener " + CHANNEL, Arrays.toString(args));
+		mSocket!!.on(channel) { args -> //                Log.e("on listener " + CHANNEL, Arrays.toString(args));
 			val jsonObject = args[0] as JSONObject
 			try {
 				val dataObject = jsonObject.getJSONObject("data")
@@ -399,7 +398,7 @@ class WebRtcClient(var mContext: Context, private val mListener: RtcListener, va
 			Log.e(TAG, "socket state connect")
 			val jsonObject = JSONObject()
 			try {
-				jsonObject.put("channel", CHANNEL)
+				jsonObject.put("channel", channel)
 				jsonObject.put("role", 1)
 			} catch (e: JSONException) {
 				e.printStackTrace()

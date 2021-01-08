@@ -1,5 +1,6 @@
 package fr.pchab.androidrtc.ui.scan_qr_code
 
+import android.R.attr.data
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +10,11 @@ import com.journeyapps.barcodescanner.BarcodeCallback
 import com.journeyapps.barcodescanner.BarcodeResult
 import com.journeyapps.barcodescanner.CaptureManager
 import fr.pchab.androidrtc.R
+import fr.pchab.androidrtc.RtcActivity.Companion.CHANNEL
 import fr.pchab.androidrtc.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_scan_qr_code.*
 import kotlinx.android.synthetic.main.common_top_bar.*
+
 
 class ScanQRCodeActivity : BaseActivity() {
 	companion object {
@@ -39,7 +42,7 @@ class ScanQRCodeActivity : BaseActivity() {
 	}
 
 	private fun initScanner(savedInstanceState: Bundle?) {
-		capture = CaptureManager(this, bcScanner )
+		capture = CaptureManager(this, bcScanner)
 		capture.apply {
 			initializeFromIntent(intent, savedInstanceState)
 			decode()
@@ -56,8 +59,15 @@ class ScanQRCodeActivity : BaseActivity() {
 		})
 	}
 
-	private fun handleResult(rawResult: String?) {
+	override fun onBackPressed() {
 
+	}
+
+	private fun handleResult(rawResult: String?) {
+		val intent = Intent()
+		intent.putExtra(CHANNEL, rawResult)
+		setResult(RESULT_OK, intent)
+		finish()
 	}
 
 	override fun onResume() {

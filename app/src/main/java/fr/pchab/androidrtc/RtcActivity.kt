@@ -2,6 +2,7 @@ package fr.pchab.androidrtc
 
 import android.annotation.TargetApi
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.media.projection.MediaProjection
@@ -21,7 +22,10 @@ import org.webrtc.ScreenCapturerAndroid
 import org.webrtc.VideoCapturer
 
 class RtcActivity : BaseActivity(), RtcListener {
+
 	private var mWebRtcClient: WebRtcClient? = null
+
+	private val channel by lazy { intent?.getStringExtra(CHANNEL) }
 
 	public override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -33,7 +37,7 @@ class RtcActivity : BaseActivity(), RtcListener {
 				or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
 				or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
 				or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
-		setContentView(R.layout.activity_rtc)
+//		setContentView(R.layout.activity_rtc)
 		val metrics = DisplayMetrics()
 		windowManager.defaultDisplay.getRealMetrics(metrics)
 		sDeviceWidth = metrics.widthPixels
@@ -107,7 +111,7 @@ class RtcActivity : BaseActivity(), RtcListener {
 		//        mWebRtcClient = new WebRtcClient(getApplicationContext(), this, pipRenderer, fullscreenRenderer, createScreenCapturer(), peerConnectionParameters);
 
 
-		mWebRtcClient = WebRtcClient(applicationContext, this, createScreenCapturer()!!, peerConnectionParameters)
+		mWebRtcClient = WebRtcClient(channel, applicationContext, this, createScreenCapturer()!!, peerConnectionParameters)
 	}
 
 	fun report(info: String?) {
@@ -159,5 +163,17 @@ class RtcActivity : BaseActivity(), RtcListener {
 		var sDeviceWidth = 0
 		var sDeviceHeight = 0
 		const val SCREEN_RESOLUTION_SCALE = 2
+
+		const val CHANNEL = "CHANNEL"
+
+		fun start(
+			context: Context?,
+			channel: String?
+		) {
+			val intent = Intent(context, RtcActivity::class.java)
+			intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+			intent.putExtra(CHANNEL, channel)
+			context?.startActivity(intent)
+		}
 	}
 }

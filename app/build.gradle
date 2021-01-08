@@ -40,13 +40,13 @@ android {
         dev {
             applicationId "com.abmirroring.tv.dev"
             resValue "string", "app_name", "AB Mirroring DEV"
-            buildConfigField("String", "BASE_URL", "\"https://screen2.dungno.info/\"")
+            buildConfigField("String", "BASE_URL", "\"https://abmirroring.tv/\"")
         }
 
         prod {
             applicationId "com.abmirroring.tv"
             resValue "string", "app_name", "AB Mirroring"
-            buildConfigField("String", "BASE_URL", "\"https://screen2.dungno.info/\"")
+            buildConfigField("String", "BASE_URL", "\"https://abmirroring.tv/\"")
         }
     }
 }
