@@ -11,21 +11,29 @@ import android.os.Build
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.util.Log
+import android.view.Gravity
+import android.view.View
 import android.view.Window
 import android.view.WindowManager
+import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import fr.pchab.androidrtc.PeerConnectionClient.PeerConnectionParameters
 import fr.pchab.androidrtc.WebRtcClient.RtcListener
 import fr.pchab.androidrtc.base.BaseActivity
 import org.webrtc.ScreenCapturerAndroid
 import org.webrtc.VideoCapturer
 
+
 class RtcActivity : BaseActivity(), RtcListener {
 
 	private var mWebRtcClient: WebRtcClient? = null
 
 	private val channel by lazy { intent?.getStringExtra(CHANNEL) }
+
+	private var wm: WindowManager? = null
+	private var wmParams: WindowManager.LayoutParams? = null
+
+	private var myView: Button? = null
 
 	public override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
@@ -37,7 +45,7 @@ class RtcActivity : BaseActivity(), RtcListener {
 				or WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
 				or WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
 				or WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON)
-//		setContentView(R.layout.activity_rtc)
+//		setContentView(R.layout.activity_connected)
 		val metrics = DisplayMetrics()
 		windowManager.defaultDisplay.getRealMetrics(metrics)
 		sDeviceWidth = metrics.widthPixels
@@ -68,6 +76,20 @@ class RtcActivity : BaseActivity(), RtcListener {
 		} else {
 			init()
 		}
+
+//		myView = Button(this)
+//
+//		wm = applicationContext.getSystemService(WINDOW_SERVICE) as WindowManager
+//		wmParams = WindowManager.LayoutParams()
+//
+//		wmParams!!.type = WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY
+//		wmParams!!.flags = WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL or WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
+//		wmParams!!.gravity = Gravity.LEFT or Gravity.TOP
+//		wmParams!!.x = 0
+//		wmParams!!.y = 0
+//		wmParams!!.width = 40
+//		wmParams!!.height = 40
+//		wm!!.addView(myView, wmParams)
 	}
 
 	@TargetApi(21)

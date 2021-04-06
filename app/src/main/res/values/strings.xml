@@ -53,4 +53,10 @@
     <string name="send_your_feedback">Send your feedback</string>
     <string name="recommend_this_app_to_a_friend">Recommend this app to a friend</string>
     <string name="rate_this_app">Rate this app</string>
+
+    <string name="camera_permission_warning">Camera permission has been disabled. Please enable it</string>
+    <string name="location_permission_warning">Location permission has been disabled. Please enable it</string>
+    <string name="record_audio_permission_warning">Record Audio permission has been disabled. Please enable it</string>
+    <string name="phone_permission_warning">Phone permission has been disabled. Please enable it</string>
+    <string name="storage_permission_warning">Storage permission has been disabled. Please enable it</string>
 </resources>
